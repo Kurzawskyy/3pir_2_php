@@ -1,0 +1,23 @@
+body {
+    background-color: navajowhite;
+}
+form,div {
+    width: 30%;
+    margin: auto;
+    text-align: center;
+}
+table {
+    margin: auto;
+}
+#btn {
+    background-color: navajowhite;
+    border: 1px solid black;
+    padding: 5px;
+    transition: background-color 0.2s ease-in;
+}
+#btn:hover {
+    background-color: coral;
+}
+h1,h2 {
+    font-family: 'Ms Madi', cursive;
+}
