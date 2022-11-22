@@ -12,7 +12,7 @@
     <h2>Norbert Kurzawski 3pir</h2>
     <hr>
     <p>Napisz program, który dla danego x będącego liczbą rzeczywistą oblicza wartość wyrażenia</p>
-    <img src="img.png" alt="rownanie"> <br>
+    <img src="http://graczyk.pwsz.glogow.pl/Zadania/Zadania_z_programowania_2_pliki/image005.png" alt="rownanie"> <br>
 
     <form action="index.php" method="post">
         <label for="x">Wartość x:</label> <br>
