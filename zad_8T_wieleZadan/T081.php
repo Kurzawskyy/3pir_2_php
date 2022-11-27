@@ -30,12 +30,34 @@
         </tr>
     </table>
 
-    <h1>Zadanie TO81</h1>
+    <h1>Zadanie T081</h1>
     <p>Napisz funkcję, która dla podanej liczby zwraca (return) jej wartość bezwzględną i zastosuj tę funkcję do wyświetlenia wyniku. Do obliczenia wartości bezwzględnej użyj instrukcji warunkowej (wariant 1) i operatora warunkowego "?" (wariant 2).</p>
+    <hr>
 
-    <form action="" method="">
-        <label for=""></label>
-        <input type="text">
+    <form action="T081.php" method="post">
+        <label for="wart">Podaj wartość liczbową: </label>
+        <input name="wart" type="text">
+        <input type="submit" value="Wyślij"> <br> <br>
     </form>
+
+    <?php
+        if(isset($_POST['wart'])) {
+            $wart = $_POST['wart'];
+            if(is_numeric($wart)) {
+                echo "Wartość bezwzględna podanej liczby to: <br>";
+                echo "Wariant 1: ".bezwzgledna($wart);
+                echo "<br>Wariant 2: ".bezwzTenary($wart);
+            } else
+                echo "Podana wartośc musi być numeryczna.";
+        }
+
+        function bezwzgledna($x) {
+            if($x < 0) return -$x;
+            return $x;
+        }
+        function bezwzTenary($x) {
+            return $x < 0 ? -$x : $x;
+        }
+    ?>
 </body>
 </html>
