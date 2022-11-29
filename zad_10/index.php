@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Wzór podanego wyrażenia</title>
 </head>
 <body>
     <h1>Zadanie 10</h1>
@@ -24,10 +24,13 @@
         if(isset($_POST["x"])) {
             $x = $_POST["x"];
             if(is_numeric($x)) {
-                $wartosc = pow($x,2)/pow(1+($x<0 ? $x = -$x : $x = $x),2);
-                echo "Wartość wyrażenia: $wartosc";
+                echo wyrazenie($x);
             } else
                 echo "Podana wartość musi być liczbą rzeczywistą.";
+        }
+
+        function wyrazenie($x) {
+            return "Wartość wyrażenia: ".$wartosc = pow($x,2)/pow(1+($x<0 ? $x = -$x : $x = $x),2);
         }
     ?>
 </body>
