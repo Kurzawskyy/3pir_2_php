@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>TO 1</title>
+    <title>T0 5</title>
     <style>
         td {
             border: 1px solid black;
@@ -30,12 +30,36 @@
     </tr>
 </table>
 
-<h1>Zadanie TO85</h1>
+<h1>Zadanie T085</h1>
 <p>Napisz funkcję, która dla dwóch liczb całkowitych wyświetla ich wspólny dzielnik (przypomnij sobie algorytm Euklidesa).</p>
+<hr>
 
-<form action="" method="">
-    <label for=""></label>
-    <input type="text">
+<form action="T085.php" method="post">
+    <label for="a">Podaj pierwszą wartość: </label>
+    <input name="a" type="text"> <br> <br>
+    <label for="b">Podaj drugą wartość: </label>
+    <input name="b" type="text">
+    <input type="submit" value="Wyślij"> <br> <br>
 </form>
+
+<?php
+    if(isset($_POST['a'])) {
+        $a = $_POST['a'];
+        $b = $_POST['b'];
+        if(is_numeric($a) && is_numeric($b))
+            echo euklides($a,$b);
+        else
+            echo "Podawane wartości muszą być numeryczne";
+    }
+
+    function euklides($x,$y) {
+        while($x != $y)
+            if($x > $y)
+                $x -= $y;
+            else
+                $y -= $x;
+        echo "Największy wspólny dzielnik podanych liczb to: $y";
+    }
+?>
 </body>
 </html>
