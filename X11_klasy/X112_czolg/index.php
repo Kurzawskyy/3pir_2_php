@@ -1,4 +1,5 @@
 <?php
+// Rozwiązanie zadania X11_2
 // Norbert Kurzawski 3pir02
 class Czolg {
     private $nazwa = "brak";
