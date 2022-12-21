@@ -1,0 +1,9 @@
+* {
+    background-color: rgb(252,228,164);
+    color: rgba(165,42,44,255);
+    font-family: Arial;
+}
+body {
+    width: 90%;
+    margin: auto;
+}

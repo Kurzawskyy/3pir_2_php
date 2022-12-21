@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--Norbert Kurzawski 3pir02-->
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Podarsuj swoje buty</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Formularz konkursu "Podrasuj swoje buty!"</h1>
+
+  <p>Chcesz zamienić swoje stare trampki na nową parę zaprojektowanych przez siebie butów Forvefield? Napisz nam, dlaczego sądzisz, że pownienieneś <i>pożegnać się</i> ze swoimi wysłużpmymi butami, a być może zostaniesz jednym z laureatów konkursu!</p>
+  <form action="script.php" method="post">
+    <fieldset>
+        <legend>Podstawowe dane</legend>
+
+        Imię i nazwisko: <input name="name-surname" type="text"> <br>
+        E-mail: <input name="email" type="text"> <br>
+        Telefon: <input name="phone" type="text"> <br>
+
+        <label> Moje buty są TAKIE stare... <br>
+        <textarea name="mess" placeholder="Nie więcej niż 300 znaków..."></textarea> </label>
+    </fieldset>
+
+    <h2>Zaprojektuj własne trampki:</h2>
+    <fieldset id="mainField">
+        <legend>Własny projekt butów</legend>
+        
+        <fieldset>
+            <legend>Kolor (wybierz jeden)</legend>
+            <input name="radioColor" type="radio" value="czerwony"> czerwony <br>
+            <input name="radioColor" type="radio" value="niebieski"> niebieski <br>
+            <input name="radioColor" type="radio" value="czarny"> czarny <br>
+            <input name="radioColor" type="radio" value="srebrny"> srebrny <br>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Opcje (możesz wybrać kilka)</legend>
+            <input name="dodatki[]" type="checkbox" value="błyszcące sznurówki"> Błyszczące sznurówki <br>
+            <input name="dodatki[]" type="checkbox" value="metalowe logo"> Metalowe logo <br>
+            <input name="dodatki[]" type="checkbox" value="świecące podeszwy"> Świecące podeszwy <br>
+            <input name="dodatki[]" type="checkbox" value="odtwarzanie MP3"> Odtwarzanie MP3 <br>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Rozmiar</legend>
+            Rozmiar zgodny ze standardowymi numerami butów
+            <select name="size">
+                <option>37</option>
+                <option>38</option>
+                <option>39</option>
+                <option>40</option>
+                <option>41</option>
+                <option>42</option>
+                <option>43</option>
+                <option>44</option>
+                <option>45</option>
+                <option>46</option>
+                <option>47</option>
+            </select>
+        </fieldset>
+    </fieldset>
+      <input type="submit" class="btn" value="Podrasuj swoje buty!">
+      <input type="reset" class="btn" value="Resetuj">
+  </form>
+</body>
+</html>

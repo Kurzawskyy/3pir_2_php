@@ -1,0 +1,31 @@
+* {
+    background-color: rgba(255,228,196,255);
+    color: rgb(116,74,68);
+    font-family: Arial;
+}
+body {
+    width: 90%;
+    margin: auto;
+}
+
+input,select,textarea {
+    background-color: white;
+}
+
+textarea {
+    width: 400px;
+    height: 80px;
+}
+
+fieldset {
+    padding: 2%;
+}
+#mainField {
+    padding: 1%;
+}
+
+.btn {
+    background-color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
