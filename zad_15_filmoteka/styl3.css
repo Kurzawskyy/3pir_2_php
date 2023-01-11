@@ -17,6 +17,9 @@ header div {
     width: 25%;
     height: 200px;
 }
+h1 {
+    margin-top: 20px;
+}
 section {
     background-color: #FFE6A3;
     display: flex;
@@ -24,7 +27,7 @@ section {
 article {
     height: 500px;
     width: 50%;
-    padding-top: 20px;
+    padding: 20px;
 }
 footer {
     background-color: #790DB5;

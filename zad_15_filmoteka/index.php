@@ -9,15 +9,7 @@
     <link rel="stylesheet" href="styl3.css">
 </head>
 <body>
-<?php
-    $db = mysqli_connect("localhost","root","","3pir_filmoteka");
 
-    $k = $_POST['kategorie'];
-    // trzeba zmienić w kw1 tak jak jest w kw 3 -> zastosować join i pracować na dwóch tabelach
-    // w domu
-
-
-?>
 
     <main>
         <header>
@@ -41,18 +33,43 @@
         <section>
             <article>
                 <h2>Wybrano filmy</h2>
+                <?php
+                    if(isset($_POST['kategorie'])) {
+                        $db = mysqli_connect("localhost", "root", "", "3pir_filmoteka");
 
+                        $k = $_POST['kategorie'];
+                        $q = "SELECT filmy.tytul,filmy.rok,filmy.ocena FROM filmy INNER JOIN gatunki ON gatunki.id = filmy.gatunki_id WHERE nazwa = '$k';";
+                        $wynik = mysqli_query($db,$q);
+
+                        echo "<br>";
+                        while($el = mysqli_fetch_row($wynik))
+                            echo "<p>"."Tytuł: ".$el[0].", Rok produkcji: ".$el[1].", Ocena: ".$el[2]."</p>"."<br>";
+
+                        mysqli_close($db);
+                    }
+                ?>
             </article>
             <article>
                 <h2>Wszystkie filmy</h2>
+                <?php
+                    $db = mysqli_connect("localhost", "root", "", "3pir_filmoteka");
 
+                    $q = "SELECT filmy.id, filmy.tytul, rezyserzy.imie, rezyserzy.nazwisko FROM filmy INNER JOIN rezyserzy ON filmy.rezyserzy_id = rezyserzy.id;";
+                    $wynik = mysqli_query($db,$q);
+
+                    echo "<br>";
+                    while($el = mysqli_fetch_row($wynik))
+                        echo "<p>".$el[0].". ".$el[1].", reżyseria: ".$el[2]." ".$el[3]."</p><br>";
+
+                    mysqli_close($db);
+                ?>
             </article>
         </section>
 
         <footer>
             <p>Autor: Norbert Kurzawski 3pir02</p>
             <a href="kwerendy.txt">Zapytania do bazy</a>
-            <a href="filmy.pl" target="_blank">Przejdź do filmy.pl</a>
+            <a href="https://filmy.pl/" target="_blank">Przejdź do filmy.pl</a>
         </footer>
     </main>
 </body>
