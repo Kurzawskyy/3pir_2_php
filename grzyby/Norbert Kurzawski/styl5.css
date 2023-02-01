@@ -1,0 +1,54 @@
+* {
+    font-family: Verdana;
+
+}
+main {
+    width: 100%;
+    height: 100%;
+}
+header {
+    display: flex;
+}
+.miniatura {
+    background-color: Sienna;
+    width: 20%;
+    height: 100px;
+}
+.tytulowy {
+    background-color: Sienna;
+    color: orange;
+    height: 100px;
+    width: 80%;
+}
+section {
+    display: flex;
+}
+.skr1 {
+    background-color: BurlyWood;
+    height: 700px;
+    width: 70%;
+}
+body {
+    margin: 0;
+}
+.skr2 {
+    background-color: BurlyWood;
+    height: 700px;
+    width: 30%;
+}
+footer {
+    background-color: Sienna;
+    color: orange;
+    text-align: center;
+}
+img {
+    margin: 7px;
+    padding: 5px;
+    border: 1px solid RosyBrown;
+}
+img:hover {
+    border: 1px solid Maroon;
+}
+.f {
+    margin: 0;
+}

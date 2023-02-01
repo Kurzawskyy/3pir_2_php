@@ -1,5 +1,5 @@
 <?php
-    $db = mysqli_connect("localhost","root","","3pir_filmoteka");
+    $db = mysqli_connect("localhost","root","","3pir_dane");
 
     $kw1 = "SELECT tytul,rok,ocena FROM filmy WHERE gatunki_id='5';";
 

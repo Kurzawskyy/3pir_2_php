@@ -35,7 +35,7 @@
                 <h2>Wybrano filmy</h2>
                 <?php
                     if(isset($_POST['kategorie'])) {
-                        $db = mysqli_connect("localhost", "root", "", "3pir_filmoteka");
+                        $db = mysqli_connect("localhost", "root", "", "3pir_dane");
 
                         $k = $_POST['kategorie'];
                         $q = "SELECT filmy.tytul,filmy.rok,filmy.ocena FROM filmy INNER JOIN gatunki ON gatunki.id = filmy.gatunki_id WHERE nazwa = '$k';";
@@ -52,7 +52,7 @@
             <article>
                 <h2>Wszystkie filmy</h2>
                 <?php
-                    $db = mysqli_connect("localhost", "root", "", "3pir_filmoteka");
+                    $db = mysqli_connect("localhost", "root", "", "3pir_dane");
 
                     $q = "SELECT filmy.id, filmy.tytul, rezyserzy.imie, rezyserzy.nazwisko FROM filmy INNER JOIN rezyserzy ON filmy.rezyserzy_id = rezyserzy.id;";
                     $wynik = mysqli_query($db,$q);
