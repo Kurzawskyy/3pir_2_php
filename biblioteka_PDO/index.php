@@ -5,7 +5,19 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Zastosowanie biblioteki PDO</title>
+    <style>
+        table, td, th {
+            border: 1px solid;
+            padding: 5px;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        th {
+            background-color: lightgray;
+        }
+    </style>
 </head>
 <body>
 <h1>Zadanie T16 - zastosowanie biblioteki PDO</h1>
@@ -20,38 +32,37 @@
     <input type="text" name="imie"> <br> <br>
     <label for="nazwisko">Nazwisko: </label>
     <input type="text" name="nazwisko"> <br><br>
-    <input type="submit" name="send" value="Wyślij">
+    <input type="submit" name="send" value="Wyślij"> <br> <br>
 </form>
 
 <?php
 if(isset($_POST['send'])) {
-    try{
-        $pdo = new PDO('mysql:host=localhost;dbname=3pir2_biblioteka','root','');
-        $imie = $_POST['imie'];
-        $nazwisko = $_POST['nazwisko'];
+    if(!empty($_POST['imie']) && !empty($_POST['nazwisko'])) {
+        try{
+            $pdo = new PDO('mysql:host=localhost;dbname=3pir2_biblioteka','root','');
+            $imie = $_POST['imie'];
+            $nazwisko = $_POST['nazwisko'];
 
-        $q = $pdo->query("INSERT INTO `autorzy`(`id`, `imie`, `nazwisko`) VALUES (null,'$imie','$nazwisko');");
+            $q = $pdo->query("INSERT INTO `autorzy`(`id`, `imie`, `nazwisko`) VALUES (null,'$imie','$nazwisko');");
+            $q = $pdo->query("SELECT * FROM `autorzy`;");
 
-        $q = $pdo->query('SELECT * FROM `autorzy`;');
-        echo '<table>
+            echo "<table>
                 <tr>
                     <th>ID</th>
                     <th>Imię</th>
                     <th>Nazwisko</th>
                 </tr>
-                ';
-        foreach ($q as $wiersz) {
-            echo "<tr><td>".$wiersz['id']."</td><td>".$wiersz['imie']."</td><td>".$wiersz['nazwisko']."</td></tr>";
+                ";
+            foreach ($q as $wiersz)
+                echo "<tr><td>".$wiersz['id']."</td><td>".$wiersz['imie']."</td><td>".$wiersz['nazwisko']."</td></tr>";
+            echo "</table>";
+        } catch (PDOException $e) {
+            echo "Błąd połączenia: ".$e->getMessage();
+            exit;
         }
-        echo '</table>';
-    } catch (PDOException $e) {
-        echo 'Błąd połączenia: '.$e->getMessage();
-        exit;
-    }
+    } else
+        echo "Minimum jedna z wartości nie została podana. Wpisz poprawnie wartości.";
 }
-
-
 ?>
-
 </body>
 </html>
