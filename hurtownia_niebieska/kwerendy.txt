@@ -1,0 +1,7 @@
+SELECT `nazwa`,`cena` FROM `towary` WHERE `id` <= 4;
+
+SELECT `cena` FROM `towary` WHERE `nazwa` = 'Cyrkiel';
+
+SELECT `nazwa` FROM `towary`;
+
+SELECT `promocja`, COUNT(`promocja`) as ilosc FROM `towary` GROUP BY `promocja`;
