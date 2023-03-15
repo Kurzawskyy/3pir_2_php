@@ -21,25 +21,25 @@
                     $db = mysqli_connect('localhost','root','','3pir2_sklep');
                     $q = "SELECT `nazwa`,`cena` FROM `towary` WHERE `id` <= 4;";
                     $wynik = mysqli_query($db,$q);
-                    echo "<table>";
+                    echo "<table style='border: 1px yellow solid'>";
                     while($el = mysqli_fetch_row($wynik)) {
-                        echo "<tr><td>".$el[0]."</td>"."<td>".$el[1]."</td></tr>";
+                        echo "<tr style='border: yellow 1px solid'><td style='border: 1px yellow solid'>".$el[0]."</td><td>".$el[1]."</td></tr>";
                     }
                     echo "</table>";
                 ?>
             </article>
             <article class="center">
-                <h3>Ile będą kosztować Twoje zakupy?</h3>
+                <h3>Ile będą kosztować Twoje zakupy?</h3> <br>
                 <form action="index.php" method="post">
-                    <label for="artykuly[]">wybierz artykuł </label>
-                    <select name="artykuly[]">
+                    <label for="artykuly">wybierz artykuł </label>
+                    <select name="artykuly">
                         <option value="Zeszyt 60 kartek">Zeszyt 60 kartek</option>
                         <option value="Zeszyt 32 kartki">Zeszyt 32 kartki</option>
                         <option value="Cyrkiel">Cyrkiel</option>
                         <option value="Linijka 30cm">Linijka 30cm</option>
                         <option value="Ekierka">Ekierka</option>
                         <option value="Linijka 50cm">Linijka 50cm</option>
-                    </select>
+                    </select> <br>
                     <label for="licz">liczba sztuk: </label>
                     <input type="number" name="licz" value="1" id="licz"> <br>
                     <input type="submit" value="Oblicz" name="oblicz">
@@ -48,12 +48,14 @@
 
                 <?php
                 if(isset($_POST['oblicz'])) {
-                    $wybor = $_POST['artykuly[]'];
+                    $wybor = $_POST['artykuly'];
                     $ilosc = $_POST['licz'];
-                    $q = "SELECT `cena` FROM `towary` WHERE `nazwa` = '".$wybor."';";
+                    $q = "SELECT `cena` FROM `towary` WHERE `nazwa` = '$wybor';";
                     $wynik = mysqli_query($db,$q);
-                    $wynik *= $ilosc;
-                    echo round($wynik,1);
+                    while($el = mysqli_fetch_row($wynik)) {
+                        $resultat = $el[0] * $ilosc;
+                        echo "<br>".round($resultat,1);
+                    }
                 }
 
                     $db = mysqli_close($db);

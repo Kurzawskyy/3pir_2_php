@@ -44,9 +44,8 @@ table {
     font-size: 120%;
     text-align: center;
 }
-td,tr,th{
-    padding: 20px;
-    border: 1px yellow;
+table, td, th {
+    border: 1px solid yellow;
 }
 td:hover {
     color: yellow;
