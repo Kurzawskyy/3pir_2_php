@@ -49,11 +49,12 @@ for ($i = 0; $i < 7; $i++) {
 echo "<br>Litera a wystąpiła: ".$a." razy";
 
 $ix = 0;
-$b = 0;
+$b1 = 0;
+$b2 = 0;
 
 for ($i = 0; $i < 7; $i++) {
     for ($j = 0; $j < 7; $j++){
-        if($tab[$i][$j] == 'a') $a++;
+
     }
 }
 
