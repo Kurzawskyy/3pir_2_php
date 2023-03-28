@@ -46,14 +46,23 @@ for ($i = 0; $i < 7; $i++) {
     }
 }
 
-echo "<br>Litera a wystąpiła: ".$a." razy";
+echo "<br>Znak a wystąpił: ".$a." razy<br>";
 
-$ix = 0;
-$b = 0;
+$b0 = 0;
+$b1 = 0;
 
 for ($i = 0; $i < 7; $i++) {
+    $b0 = 0;
     for ($j = 0; $j < 7; $j++){
-        if($tab[$i][$j] == 'a') $a++;
+        if($tab[$i][$j] == 'b') $b0++;
     }
+    if($b0 > $b1) $b1 = $b0;
 }
 
+$obecne_b = 0;
+for ($i = 0; $i < 7; $i++) {
+    $obecne_b = 0;
+    for ($j = 0; $j < 7; $j++)
+        if($tab[$i][$j] == 'b') $obecne_b++;
+    if($obecne_b == $b1) echo "<br>Znak b wystąpił najwięcej razy (".$b1.") w linii o indexie: ".$i;
+}
